@@ -10,7 +10,7 @@ const { filenameBase, pluginBase } = {
 const isDev = Deno.env.get("DEV");
 
 if (isDev) {
-  const rid = Deno.openPlugin("./target/debug/" + filename(filenameBase));
+  const rid = Deno.dlopen("./target/debug/" + filename(filenameBase));
 } else {
   // logger.info(`Downloading latest Autopilot release from Github`);
   const pluginId = await prepare({
